@@ -23,4 +23,13 @@ public class Babysitter {
 		return false;
 		}
 	}
+	
+	public boolean eligibleEndTime(int i) {
+		end = i;
+		if (end <= 16) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
