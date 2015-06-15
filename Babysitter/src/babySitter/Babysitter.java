@@ -5,7 +5,7 @@ public class Babysitter {
 	private int bed;
 	private int end;
 	private static final int PAY_BEFORE_BEDTIME = 12;
-	private static final int PAY_FROM_BEDTIME_TILL_MIDNIGHT = 8;
+	private static final int PAY_FROM_BEDTIME_TIL_MIDNIGHT = 8;
 	private static final int PAY_AFTER_MIDNIGHT = 16;
 
 	public Babysitter(int startTime, int endTime, int bedTime) {
@@ -39,6 +39,8 @@ public class Babysitter {
 		for (int currentTime = start; currentTime < end; currentTime++) {
 			if (isBeforeBedtime(currentTime)) {
 				hourlyWage = PAY_BEFORE_BEDTIME;
+			} else if (isAfterBedtimeButBeforeMidnight(currentTime)) {
+				hourlyWage = PAY_FROM_BEDTIME_TIL_MIDNIGHT;
 			}
 
 			totalWage += hourlyWage;
@@ -49,5 +51,9 @@ public class Babysitter {
 
 	private boolean isBeforeBedtime(int hour) {
 		return hour < bed;
+	}
+	
+	private boolean isAfterBedtimeButBeforeMidnight(int hour) {
+		return hour >= hour && bed < 12;
 	}
 }

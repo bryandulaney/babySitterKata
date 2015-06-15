@@ -27,5 +27,11 @@ public class BabySitterTest {
 		Babysitter sitter = new Babysitter(6,8,BEDTIME);
 		assertEquals(24, sitter.calcPay());
 	}
+	
+	@Test
+	public void shouldMake8DollarsPerHourFromBedtimeTilMidnight() {
+		Babysitter sitter = new Babysitter(8, 10, BEDTIME);
+		assertEquals(16, sitter.calcPay());
+	}
 
 }
