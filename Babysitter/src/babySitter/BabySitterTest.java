@@ -40,6 +40,11 @@ public class BabySitterTest {
 		assertEquals(32, sitter.calcPay());
 	}
 	
+	@Test
+	public void shouldBePaidCorrectlyAtEndOfShift() {
+		Babysitter sitter = new Babysitter(5, 16, BEDTIME);
+		assertEquals(132, sitter.calcPay());
+	}
 
 
 }
