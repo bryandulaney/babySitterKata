@@ -8,10 +8,11 @@ public class Babysitter {
 	private static final int PAY_FROM_BEDTIME_TIL_MIDNIGHT = 8;
 	private static final int PAY_AFTER_MIDNIGHT = 16;
 
-	public Babysitter(int startTime, int endTime, int bedTime) {
-		start = startTime;
-		end = endTime;
-		bed = bedTime;
+
+	public Babysitter(int start, int end, int bed) {
+		this.start = start;
+		this.end = end;
+		this.bed = bed;
 	}
 
 	public boolean eligibleStartTime(int i) {
