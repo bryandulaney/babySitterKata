@@ -41,6 +41,8 @@ public class Babysitter {
 				hourlyWage = PAY_BEFORE_BEDTIME;
 			} else if (isAfterBedtimeButBeforeMidnight(currentTime)) {
 				hourlyWage = PAY_FROM_BEDTIME_TIL_MIDNIGHT;
+			} else {
+				hourlyWage = PAY_AFTER_MIDNIGHT;
 			}
 
 			totalWage += hourlyWage;
@@ -52,8 +54,9 @@ public class Babysitter {
 	private boolean isBeforeBedtime(int hour) {
 		return hour < bed;
 	}
-	
+
 	private boolean isAfterBedtimeButBeforeMidnight(int hour) {
-		return hour >= hour && bed < 12;
+		return hour >= bed && hour < 12;
 	}
+
 }
