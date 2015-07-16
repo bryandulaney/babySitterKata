@@ -55,7 +55,7 @@ public class Babysitter {
 	}
 
 	private boolean isNotEligibleSittingHour(int hour) {
-		return hour < 5 || hour > 16;
+		return hour < 5 || hour >= 16;
 	}
 
 	private boolean isBeforeBedtime(int hour) {

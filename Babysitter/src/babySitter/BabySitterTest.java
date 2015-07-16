@@ -16,9 +16,8 @@ public class BabySitterTest {
 
 	@Test
 	public void shouldNotEndAfter4AM() {
-		Babysitter sitter = new Babysitter(0, 17, BEDTIME);
-		assertEquals(false, sitter.eligibleEndTime(17));
-		assertEquals(true, sitter.eligibleEndTime(16));
+		Babysitter sitter = new Babysitter(16, 18, BEDTIME);
+		assertEquals(0, sitter.calcPay());
 	}
 	
 	@Test
