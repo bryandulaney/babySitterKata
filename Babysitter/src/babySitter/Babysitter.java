@@ -22,7 +22,7 @@ public class Babysitter {
 		for (int currentTime = start; currentTime < end; currentTime++) {
 			if (isNotEligibleSittingHour(currentTime)) {
 				hourlyWage = INELIGIBLE_SHIFT_PAY;
-			} else if (isBeforeBedtime(currentTime)) {
+			} else if (isBeforeBedtimeButBeforeMidnight(currentTime)) {
 				hourlyWage = PAY_BEFORE_BEDTIME;
 			} else if (isAfterBedtimeButBeforeMidnight(currentTime)) {
 				hourlyWage = PAY_FROM_BEDTIME_TIL_MIDNIGHT;
@@ -40,8 +40,8 @@ public class Babysitter {
 		return hour < 5 || hour >= 16;
 	}
 
-	private boolean isBeforeBedtime(int hour) {
-		return hour < bed;
+	private boolean isBeforeBedtimeButBeforeMidnight(int hour) {
+		return hour < bed && hour < 12;
 	}
 
 	private boolean isAfterBedtimeButBeforeMidnight(int hour) {
