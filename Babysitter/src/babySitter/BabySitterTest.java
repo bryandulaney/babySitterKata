@@ -8,13 +8,13 @@ public class BabySitterTest {
 
 	@Test
 	public void shouldNotStartBefore5PM() {
-		Babysitter sitter = new Babysitter(2, 5, 8);
+		Babysitter sitter = new Babysitter(2, 16, 8);
 		assertEquals(0, sitter.calcPay());
 	}
 
 	@Test
 	public void shouldNotEndAfter4AM() {
-		Babysitter sitter = new Babysitter(16, 17, 8);
+		Babysitter sitter = new Babysitter(5, 17, 8);
 		assertEquals(0, sitter.calcPay());
 	}
 
