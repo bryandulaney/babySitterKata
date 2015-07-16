@@ -10,9 +10,8 @@ public class BabySitterTest {
 
 	@Test
 	public void shouldNotStartBefore5PM() {
-		Babysitter sitter = new Babysitter(2, 0, BEDTIME);
-		assertEquals(false, sitter.eligibleStartTime(2));
-		assertEquals(true, sitter.eligibleStartTime(5));
+		Babysitter sitter = new Babysitter(2, 5, BEDTIME);
+		assertEquals(0, sitter.calcPay());
 	}
 
 	@Test

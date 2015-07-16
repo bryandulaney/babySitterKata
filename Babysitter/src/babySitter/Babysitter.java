@@ -4,10 +4,10 @@ public class Babysitter {
 	private int start;
 	private int bed;
 	private int end;
+	private static final int INELIGIBLE_SHIFT_PAY = 0;
 	private static final int PAY_BEFORE_BEDTIME = 12;
 	private static final int PAY_FROM_BEDTIME_TIL_MIDNIGHT = 8;
 	private static final int PAY_AFTER_MIDNIGHT = 16;
-
 
 	public Babysitter(int start, int end, int bed) {
 		this.start = start;
@@ -38,7 +38,9 @@ public class Babysitter {
 		int totalWage = 0;
 
 		for (int currentTime = start; currentTime < end; currentTime++) {
-			if (isBeforeBedtime(currentTime)) {
+			if (isNotEligibleSittingHour(currentTime)) {
+				hourlyWage = INELIGIBLE_SHIFT_PAY;
+			} else if (isBeforeBedtime(currentTime)) {
 				hourlyWage = PAY_BEFORE_BEDTIME;
 			} else if (isAfterBedtimeButBeforeMidnight(currentTime)) {
 				hourlyWage = PAY_FROM_BEDTIME_TIL_MIDNIGHT;
@@ -50,6 +52,10 @@ public class Babysitter {
 			hourlyWage = 0;
 		}
 		return totalWage;
+	}
+
+	private boolean isNotEligibleSittingHour(int hour) {
+		return hour < 5 || hour > 16;
 	}
 
 	private boolean isBeforeBedtime(int hour) {
