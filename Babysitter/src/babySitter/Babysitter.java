@@ -15,24 +15,6 @@ public class Babysitter {
 		this.bed = bed;
 	}
 
-	public boolean eligibleStartTime(int i) {
-		start = i;
-		if (start >= 5) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public boolean eligibleEndTime(int i) {
-		end = i;
-		if (end <= 16) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	public int calcPay() {
 		int hourlyWage = 0;
 		int totalWage = 0;
